@@ -34,16 +34,13 @@ class Brain{
 		foreach($this->nnLayers as $layerIdx=>$layer){
 			if($layerIdx==0){
 				continue; // skip input layer
-				echo 0;
 			}elseif($layerIdx<count($this->nnLayers)-1){ // hidden leyers
 				$nxtInput = array();
 				foreach($layer as $nodeIdx=>$node){
 					$nxtInput[$nodeIdx] = $node->run($input);
 				}
 				$input = $nxtInput;
-				echo 1;
 			}else{ // output layer
-				echo 2;
 				$nxtInput = array();
 				foreach($layer as $nodeIdx=>$node){
 					$nxtInput[$nodeIdx] = $node->run($input);
